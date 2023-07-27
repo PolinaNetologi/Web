@@ -33,12 +33,12 @@ public class AppOrderTest {
     }
     @Test
     public void shouldTestV1() {
-        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Василий");
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys(" Иванов Василий");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79270000000");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        driver.findElement(By.cssSelector("[data-test-id=submit]")).click();
+        driver.findElement(By.cssSelector("input_sub")).click();
 
-        var actualText = driver.findElement(By.cssSelector("|data-test-i=order-success|")).getText().trim();
+        var actualText = driver.findElement(By.cssSelector("|data-test-id=order-success|")).getText().trim();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
 }
